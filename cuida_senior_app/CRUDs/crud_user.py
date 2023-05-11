@@ -42,6 +42,9 @@ class User:
         
     def add_idosos(self,idoso):
         self.idosos.append(idoso)
+        
+    def return_idosos(self)
+        return self.idosos
 
         
 class UserForm:
@@ -131,6 +134,11 @@ class UserControl:
     def user_set_nome(self,login,nome):
         user = self.get_user_login(login)
         user.set_nome(nome)
+        
+    def delete_idosos(self,login):
+	    user = self.get_user_login(login)
+	    deleter = SingletonFachadaDeleteIdoso()
+	    delete.delete_idosos()
 
 if __name__ == "__main__":
     manager = UserControl()
