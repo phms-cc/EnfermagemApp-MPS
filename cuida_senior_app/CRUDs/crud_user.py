@@ -134,10 +134,14 @@ class UserControl:
     def user_set_nome(self,login,nome):
         user = self.get_user_login(login)
         user.set_nome(nome)
-        
+    
+
+    def user_get_pacientes(self,login):
+		user = self.get_user_login(login)
+		return user.return_idosos()
     def delete_idosos(self,login):
-	    user = self.get_user_login(login)
-	    deleter = SingletonFachadaDeleteIdoso()
+	    lista = self.get_user_login(login)
+	    deleter = SingletonFachadaDeletePaciente(lista)
 	    delete.delete_idosos()
 
 if __name__ == "__main__":
