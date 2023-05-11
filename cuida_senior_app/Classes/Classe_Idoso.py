@@ -6,7 +6,7 @@ Created on Sat May  6 21:40:53 2023
 """
 
 class Idoso():
-    def __init__(self,i,atributos,endereco,comorbidades):
+    def __init__(self,i,atributos,endereco,comorbidades,atividades):
         self.id = i
         self.nome = atributos[0]
         self.idade = atributos[1]
@@ -14,6 +14,7 @@ class Idoso():
         self.altura = atributos[3]
         self.endereco = endereco
         self.comorbidades = comorbidades
+        self.atividades = atividades
         #tornar enum?
     
     def getID(self):
@@ -74,6 +75,13 @@ class Idoso():
             if(self.temComorbidade(comorbidade)):
                 self.comorbidades.remove(comorbidade)
             #poderia fazer um else com excecao
+        
+    def getAtividade(self):
+        return self.atividades
+    
+    def addAtividade(self, atividade):
+        self.atividades.append(atividade)
+        
         
 class IdosoControle:
     def __init__(self):
