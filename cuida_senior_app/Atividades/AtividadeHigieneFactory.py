@@ -15,4 +15,5 @@ class AtividadeHidratacao_Factory(Atividade_Factory):
     
     def getAtividade(self)->Atividade:
         atividade = AtividadeHigiene()
+        atividade.set_tipo(3)
         return atividade
