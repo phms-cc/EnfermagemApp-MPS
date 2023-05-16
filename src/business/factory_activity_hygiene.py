@@ -5,9 +5,9 @@ Created on Tue May  9 22:07:29 2023
 @author: filip
 """
 
-from AtividadeHigiene import AtividadeHigiene
-from AtividadeFactory import Atividade_Factory
-from Atividade import Atividade
+from activity_hygiene import AtividadeHigiene
+from factory_activity import Atividade_Factory
+from activity import Atividade
 
 class AtividadeHidratacao_Factory(Atividade_Factory):
     def __init__(self):
