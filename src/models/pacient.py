@@ -8,7 +8,7 @@ class Paciente(ABC):
         self.peso = peso
         self.altura = altura
         self.endereço = endereço
-        self.atividades = []
+
     
     @abstractmethod
     def getID(self):
