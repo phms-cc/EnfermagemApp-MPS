@@ -5,7 +5,10 @@ Created on Sat May  6 21:40:53 2023
 @author: filip
 """
 
-class Idoso():
+from Interface_Paciente import Paciente
+from EnumTipoComorbidades import TipoComorbidades
+
+class Idoso(Paciente):
     def __init__(self,i,atributos,endereco,comorbidades,atividades):
         self.id = i
         self.nome = atributos[0]
@@ -58,13 +61,23 @@ class Idoso():
         return self.comorbidades
     
     def addComorbidade(self,comorbidade):
-        self.comorbidades.append(comorbidade)
+        if(comorbidade in TipoComorbidades.__members__):
+            self.comorbidades.append(comorbidade)
+        elif((isinstance (comorbidade,int))and (comorbidade <=(len(TipoComorbidades)))):
+            tipo = TipoComorbidades(comorbidade).name
+            self.comorbidades.append(tipo)
+        else: 
+            return -1
+        #self.ordenaComorbidades()
     
-    def temComorbidade(self,comorbidade):
+    def hasComorbidade(self,comorbidade):
         return (comorbidade in self.comorbidades)
     
     def nComorbidades(self):
        return len(self.comorbidades)
+    
+    def ordenaComorbidades(self):
+        self.comorbidades = sorted(self.comorbidades,key = lambda x: (x.tipo),reverse = False)
     
     def removeComorbidade(self,comorbidade):
         if(isinstance(comorbidade, int)):
