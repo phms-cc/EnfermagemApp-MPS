@@ -75,4 +75,4 @@ class AtividadeHigiene(Atividade):
             self.areaslavadas[x] = False
         else:
             pass
-            #ou seila, levantar um erro
+            #ou levantar um erro?
