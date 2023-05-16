@@ -9,7 +9,7 @@ from activity_hygiene import AtividadeHigiene
 from factory_activity import Atividade_Factory
 from activity import Atividade
 
-class AtividadeHidratacao_Factory(Atividade_Factory):
+class AtividadeHigiene_Factory(Atividade_Factory):
     def __init__(self):
         pass
     
