@@ -4,7 +4,7 @@ Created on Tue May  9 21:18:18 2023
 
 @author: filip
 """
-from Atividade import Atividade
+from activity import Atividade
 from abc import ABC, abstractmethod
 
 class Atividade_Factory(ABC):
