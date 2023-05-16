@@ -9,3 +9,10 @@ class UserFacade:
 
     def obter_usuarios(self):
         return self.persistencia.obter_usuarios()
+    
+    def obter_usuario(self, login):
+        usuarios = self.obter_usuarios()
+        for usuario in usuarios:
+            if (usuario.get_login() == login):
+                return usuario
+        return None
