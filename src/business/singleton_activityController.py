@@ -1,4 +1,5 @@
 from models.activity import Atividade
+from SingletonMeta import SingletonMeta
 
 
 class AtividadeController(metaclass=SingletonMeta):
