@@ -8,6 +8,7 @@ class Paciente(ABC):
         self.peso = peso
         self.altura = altura
         self.endereço = endereço
+        self.atividades = []
     
     @abstractmethod
     def getID(self):
@@ -76,5 +77,11 @@ class Paciente(ABC):
     @abstractmethod
     def removeComorbidade(self,comorbidade):
         pass
-
+    
+    @abstractmethod
+    def add_atividade(self,atividade):
+        pass
+    @abstractmethod
+    def get_atividades(self):
+        pass
    
