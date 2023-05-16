@@ -4,9 +4,9 @@ from factory_activity_feeding import AtividadeAlimentacao_Factory
 from factory_activity_hydration import AtividadeHidratacao_Factory
 from factory_activity_hygiene import AtividadeHigiene_Factory
 from factory_activity_medication import AtividadeMedicacao_Factory
+from SingletonMeta import SingletonMeta
 
-
-class AtividadeController:
+class AtividadeController(metaclass=SingletonMeta):
 
     
     def cria_atividade(self):
