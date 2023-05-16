@@ -17,9 +17,11 @@ class UserController:
         # Criar um novo usuário
         
         novo_usuario = User(login, senha, nome)
-        salvar_user = UserFacade()
-        salvar_user.cadastrar_usuario(novo_usuario)
         return novo_usuario
+    
+    def salvar_usuario(self,usuario):
+        salvar_user = UserFacade()
+        salvar_user.cadastrar_usuario(usuario)
         
     def get_user(self,login):
         salvar_user = UserFacade()
