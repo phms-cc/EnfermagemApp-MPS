@@ -1,5 +1,5 @@
 from models.user import User
-from interface.userFacade import UserFacade
+from interface.user_intra_interface_factory import UserIntraInterface
 
 class UserController:
     def criar_usuario(login, senha, nome):
@@ -20,11 +20,13 @@ class UserController:
         return novo_usuario
     
     def salvar_usuario(self,usuario):
-        salvar_user = UserFacade()
+        factory  = UserIntraInterface()
+        salvar_user = factory.getUserIntraInter()
         salvar_user.cadastrar_usuario(usuario)
         
     def get_user(self,login):
-        salvar_user = UserFacade()
+        factory  = UserIntraInterface()
+        salvar_user = factory.getUserIntraInter()
         user = salvar_user.obter_usuario(login)
         return user
         
