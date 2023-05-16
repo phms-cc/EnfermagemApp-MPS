@@ -12,9 +12,11 @@ class GeraRelatorio(ABC):
 		self.file_name = file_name
 		self.users = users
 		self.info = []
+    @abstractmethod
 	def create_file(self):
 		#funcoes de criar e abrir arquivo
 		pass
+    @abstractmethod
 	def close_file(self):
 		#funcao de fechar arquivo
 		pass
