@@ -77,3 +77,9 @@ class Idoso(Paciente):
             #poderia fazer um else com excecao
             
 
+  
+    def add_atividade(self,atividade):
+        self.atividades.append(atividade)
+    
+    def get_atividades(self):
+        return self.atividades
