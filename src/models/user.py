@@ -5,13 +5,7 @@ class User:
         self.nome = nome
          self.email = None
         self.telefone = None
-        self.pacientes = []
 
-    def adicionar_paciente(self, paciente):
-        self.pacientes.append(paciente)
-
-    def remover_paciente(self, paciente):
-        self.pacientes.remove(paciente)
         
     def get_password(self):
         return self.password
