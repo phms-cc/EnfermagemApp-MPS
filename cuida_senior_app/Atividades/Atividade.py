@@ -6,7 +6,7 @@ Created on Sun May  7 16:00:45 2023
 """
 
 
-
+from EnumTipoAtividade import TipoAtividade
 # tipos de atividade:
 #alimentação, hidratação, higiene e medicação
 class Atividade:
@@ -36,6 +36,15 @@ class Atividade:
     def get_alarme(self):
         return self.alarme
         
+    def set_tipo(self,tipo):
+          
+        if(tipo in TipoAtividade.__members__):
+            self.tipo = tipo
+        elif((isinstance (tipo,int))and (tipo <=(len(TipoAtividade)))):
+            self.tipo = TipoAtividade(tipo).name
+            
+    def get_tipo(self):
+        return self.tipo        
 
 class AtividadeControl:
     def __init__(self):
