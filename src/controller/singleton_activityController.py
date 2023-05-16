@@ -1,13 +1,33 @@
 from models.activity import Atividade
-from SingletonMeta import SingletonMeta
+from factory_activity import Atividade_Factory
+from factory_activity_feeding import AtividadeAlimentacao_Factory
+from factory_activity_hydration import AtividadeHidratacao_Factory
+from factory_activity_hygiene import AtividadeHigiene_Factory
+from factory_activity_medication import AtividadeMedicacao_Factory
 
 
-class AtividadeController(metaclass=SingletonMeta):
+class AtividadeController:
 
     
     def cria_atividade(self):
-        atividade = Atividade()
-        return atividade
+        factory = Atividade_Factory()
+        return factory.getAtividade()
+    
+    def cria_atividade_alimentacao(self):
+        factory = AtividadeAlimentacao_Factory()
+        return factory.getAtividade()
+    
+    def cria_atividade_hidratacao(self):
+        factory = AtividadeHidratacao_Factory()
+        return factory.getAtividade()
+
+    def cria_atividade_higiene(self):
+        factory = AtividadeHigiene_Factory()
+        return factory.getAtividade()
+
+    def cria_atividade_medicacao(self):
+        factory = AtividadeMedicacao_Factory()
+        return factory.getAtividade()
     
     def get_atividade(self):
         pass
