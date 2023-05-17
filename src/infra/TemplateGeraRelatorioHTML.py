@@ -10,9 +10,7 @@ import datetime
 
 class GeraRelatorioHTML(GeraRelatorio):
 	def __init__(self,file_name,users):
-		self.file_name = file_name
-		self.users = users
-		self.info = []
+		super().__init__(file_name,users)
 		self.file = None
         
 	def create_file(self):
