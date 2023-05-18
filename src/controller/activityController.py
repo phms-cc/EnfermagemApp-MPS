@@ -5,6 +5,9 @@ from factory_activity_hydration import AtividadeHidratacao_Factory
 from factory_activity_hygiene import AtividadeHigiene_Factory
 from factory_activity_medication import AtividadeMedicacao_Factory
 
+from models.show_image import MostraImagem
+from models.show_image_adapter import AdaptadorImagem
+
 class AtividadeController:
 
     
@@ -48,6 +51,11 @@ class AtividadeController:
         
     def get_imagens(self,atividade):
         atividade.get_imagens()
+    
+    def mostra_imagem(self,imagem,argumentos):	
+        adaptador = AdaptadorImagem()
+        mostrador = MostraImagem()
+        adaptador.mostra_imagem(mostrador,imagem,argumentos)
         
     def show_atividades(self,paciente):
         atividades = paciente.get_atividades()
