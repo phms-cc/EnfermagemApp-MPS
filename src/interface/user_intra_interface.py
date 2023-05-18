@@ -1,6 +1,7 @@
 from infra.userPersistance import UserPersistencia
+from user_intra_interface_abstract import UserIntraInterfaceAbstract
 
-class UserIntraInterface:
+class UserIntraInterface(UserIntraInterfaceAbstract):
     def __init__(self):
         self.persistencia = UserPersistencia()
 
