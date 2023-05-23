@@ -21,7 +21,8 @@ class UserController:
     
     def salvar_usuario(self,usuario):
         factory  = UserIntraInterfaceFactory()
-        factory.cadastrar_usuario(usuario)
+        salvar_user = factory.getUserIntraInter()
+        salvar_user.cadastrar_usuario(usuario)
         
         
     def get_user(self,login):
