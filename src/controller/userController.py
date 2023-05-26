@@ -2,7 +2,7 @@ from models.user import User
 from interface.user_intra_interface_factory import UserIntraInterfaceFactory
 
 class UserController:
-    def criar_usuario(login, senha, nome):
+    def create(login, senha, nome):
         # Verificar as restrições do login
         if len(login) > 12 or len(login) == 0 or any(char.isdigit() for char in login):
             return False
@@ -19,22 +19,28 @@ class UserController:
         novo_usuario = User(login, senha, nome)
         return novo_usuario
     
-    def salvar_usuario(self,usuario):
+    def save(self,usuario):
         factory  = UserIntraInterfaceFactory()
         salvar_user = factory.getUserIntraInter()
         salvar_user.cadastrar_usuario(usuario)
         
         
-    def get_user(self,login):
+    def get(self,login):
         factory  = UserIntraInterfaceFactory()
         salvar_user = factory.getUserIntraInter()
         user = salvar_user.obter_usuario(login)
         return user
+    
+    def get_all(self):
+        factory = UserIntraInterfaceFactory()
+        user_intra_inter = factory.getUserIntraInter()
+        return user_intra_inter.obter_usuarios()
         
-    def delete_usuario(self,login):
+    def delete(self,login):
         pass
 
-    def change_user_password(self,login,new_password):
+
+    def edit_password(self,login,new_password):
         user = self.get_user(login)
         user.set_password(new_password)
                 
@@ -43,33 +49,33 @@ class UserController:
             return False
         return True
     
-    def user_get_password(self,login):
+    def get_password(self,login):
         user = self.get_user(login)
         return user.get_password()
 
-    def user_compare_password(self,user, password):
-        return ((self.user_get_password())== (password))
+    def compare_password(self, password):
+        return ((self.get_password())== (password))
 
-    def user_get_email(self,login):
+    def get_email(self,login):
         user = self.get_user(login)
         return user.get_email()
 
-    def user_set_email(self,login,email):
+    def set_email(self,login,email):
         user = self.get_user(login)
         user.set_email(email)
 
-    def user_get_telefone(self,login):
+    def get_telefone(self,login):
         user = self.get_user(login)
         return user.get_telefone()
 
-    def user_set_telefone(self,login,telefone):
+    def set_telefone(self,login,telefone):
         user = self.get_user(login)
         user.set_telefone(telefone)
 
-    def user_get_nome(self,login):
+    def get_nome(self,login):
         user = self.get_user(login)
         return user.get_nome()
 
-    def user_set_nome(self,login,nome):
+    def set_nome(self,login,nome):
         user = self.get_user(login)
         user.set_nome(nome)
