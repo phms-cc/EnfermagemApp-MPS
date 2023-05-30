@@ -28,7 +28,7 @@ class UserController:
     def get(self,login):
         factory  = UserIntraInterfaceFactory()
         salvar_user = factory.getUserIntraInter()
-        user = salvar_user.obter_usuario(login)
+        user = salvar_user.get_user_by_login(login)
         return user
     
     def get_all(self):
@@ -37,10 +37,14 @@ class UserController:
         return user_intra_inter.obter_usuarios()
         
     def delete(self,login):
+        factory  = UserIntraInterfaceFactory()
+        salvar_user = factory.getUserIntraInter()
+        user = salvar_user.get_user_by_login(login)
+        ~user
         pass
 
 
-    def edit_password(self,login,new_password):
+    def set_password(self,login,new_password):
         user = self.get_user(login)
         user.set_password(new_password)
                 
@@ -48,6 +52,18 @@ class UserController:
         if (self.get_user(login) == None):
             return False
         return True
+    
+    def get_login(self, email):
+        factory = UserIntraInterfaceFactory()
+        user_intra_inter = factory.getUserIntraInter()
+        user = user_intra_inter.get_user_by_email(email)
+        return user.get_login()
+    
+    def set_login(self, email, new_login):
+        factory = UserIntraInterfaceFactory()
+        user_intra_inter = factory.getUserIntraInter()
+        user = user_intra_inter.get_user_by_email(email)
+        user.set_login(new_login)
     
     def get_password(self,login):
         user = self.get_user(login)

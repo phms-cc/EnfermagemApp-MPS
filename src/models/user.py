@@ -6,6 +6,8 @@ class User:
         self.email = None
         self.telefone = None
 
+    def __del__(self):
+        pass
         
     def get_password(self):
         return self.password
