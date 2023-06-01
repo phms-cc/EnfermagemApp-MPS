@@ -59,17 +59,17 @@ class SystemFacade(metaclass=SingletonMeta):
     def user_get_login(self, email):
         return self.user_controller.get_login(self.user_controller, email)
     
-    def user_set_telefone(self, login, telefone):
-        self.user_controller.set_telefone(self.user_controller, login, telefone)
+    def user_set_phone(self, login, phone):
+        self.user_controller.set_telefone(self.user_controller, login, phone)
 
-    def user_get_telefone(self, login):
-        self.user_controller.get_telefone(self.user_controller, login)
+    def user_get_phone(self, login):
+        return self.user_controller.get_telefone(self.user_controller, login)
 
-    def user_set_nome(self, login, nome):
-        self.user_controller.set_nome(self.user_controller, login, nome)
+    def user_set_name(self, login, name):
+        self.user_controller.set_nome(self.user_controller, login, name)
 
-    def user_get_nome(self, login):
-        self.user_controller.get_nome(self.user_controller, login)
+    def user_get_name(self, login):
+        return self.user_controller.get_nome(self.user_controller, login)
     
     def user_signup(self, login, senha, nome):
         user = self.user_controller.get(login)
@@ -77,5 +77,54 @@ class SystemFacade(metaclass=SingletonMeta):
             usuario = self.user_controller.create(login,senha,nome)
             return self.user_controller.save(usuario)
         return self.user_controller.get(user)
+
+    def create_patient(self, name, age, weight, height, address):
+        return self.patient_controller.criar_paciente_idoso(
+            self.patient_controller, 
+            name,
+            age,
+            weight,
+            height,
+            address
+            )
+
+    def list_patients(self, patients):
+        return self.patient_controller.list_pacientes(self.patient_controller, patients)
+
+    def set_patient_name(self, patient, name):
+        self.patient_controller.set_nome(self.patient_controller, patient, name)
+
+    def get_patient_name(self, patient):
+        return self.patient_controller.get_nome(self.patient_controller, patient)
+    
+    def set_patient_age(self, patient, age):
+        self.patient_controller.set_nome(self.patient_controller, patient, age)
+
+    def get_patient_age(self, patient):
+        return self.patient_controller.get_idade(self.patient_controller, patient)
+    
+    def set_patient_height(self, patient, height):
+        self.patient_controller.set_altura(self.patient_controller, patient, height)
+
+    def get_patient_height(self, patient):
+        return self.patient_controller.get_altura(self.patient_controller, patient)
+    
+    def set_patient_weight(self, patient, weight):
+        self.patient_controller.set_peso(self.patient_controller, patient, weight)
+
+    def get_patient_weight(self, patient):
+        return self.patient_controller.get_peso(self.patient_controller, patient)
+    
+    def set_patient_address(self, patient, address):
+        self.patient_controller.set_endereco(self.patient_controller, patient, address)
+
+    def get_patient_address(self, patient):
+        return self.patient_controller.get_endereco(self.patient_controller, patient)
+    
+    def add_patient_comorbidity(self, patient, comorbidity):
+        self.patient_controller.add_comorbidade(self.patient_controller, patient, comorbidity)
+    
+    def remove_patient_comorbidity(self, patient, comorbidity):
+        self.patient_controller.remove_comorbidade(self.patient_controller, patient, comorbidity)
 
     

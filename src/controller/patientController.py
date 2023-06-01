@@ -52,3 +52,9 @@ class PacienteController:
         comorbidades = get_comorbidades(paciente)
         for comorbidade in comorbidades:
             print(comorbidade, end = " ")
+
+    def add_comorbidade(self, paciente, comorbidade):
+        paciente.addComorbidade(paciente, comorbidade)
+        
+    def remove_comorbidade(self, paciente, comorbidade):
+        paciente.removeComorbidade(paciente, comorbidade)
