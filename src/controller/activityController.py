@@ -4,9 +4,11 @@ from factory_activity_feeding import AtividadeAlimentacao_Factory
 from factory_activity_hydration import AtividadeHidratacao_Factory
 from factory_activity_hygiene import AtividadeHigiene_Factory
 from factory_activity_medication import AtividadeMedicacao_Factory
+from EnumTipoAtividade import TipoAtividade
 
 from models.show_image import MostraImagem
-from models.show_image_adapter import AdaptadorImagem
+from models.EnumTipoAtividade import TipoAtividade
+from models.NoEnum import NoEnum
 
 class AtividadeController:
 
@@ -64,7 +66,9 @@ class AtividadeController:
             print ("Atividade do tipo " + atividade.get_tipo() + " Data: " + str(atividade.get_data()))
                       
     def set_tipo(self,atividade,tipo):
-        atividade.set_tipo(tipo)
+        no_enum = NoEnum()
+        if no_enum.no_enum(tipo,TipoAtividade):
+	        atividade.set_tipo(no_enum.get_valor(tipo,TipoAtividade))
         
     def get_tipo(self,atividade):
         return atividade.get_tipo()
