@@ -29,11 +29,7 @@ class Atividade:
         return self.alarme
     
     def set_tipo(self,tipo):
-          
-        if(tipo in TipoAtividade.__members__):
-            self.tipo = tipo
-        elif((isinstance (tipo,int))and (tipo <=(len(TipoAtividade)))):
-            self.tipo = TipoAtividade(tipo).name
+        self.tipo = tipo
             
     def get_tipo(self):
         return self.tipo
