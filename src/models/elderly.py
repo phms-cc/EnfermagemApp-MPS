@@ -75,11 +75,12 @@ class Idoso(Paciente):
             if(self.temComorbidade(comorbidade)):
                 self.comorbidades.remove(comorbidade)
             #poderia fazer um else com excecao
-            
-
   
     def add_atividade(self,atividade):
         self.atividades.append(atividade)
     
     def get_atividades(self):
         return self.atividades
+
+    def remove_atividade(self,atividade):
+        self.atividades.remove(atividade)

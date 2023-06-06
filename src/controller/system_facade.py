@@ -31,15 +31,7 @@ class SystemFacade(metaclass=SingletonMeta):
         return self.user_controller.get_password(self.user_controller, login)
     
     def set_user_password(self, login, old_password, new_password):
-        # comentar com o professor se é melhor usar o controller ou chamar o
-        # método da própria fachada.
-        password_validate = self.compare_user_password(old_password)
-        
-        if(password_validate == True):
-            return self.user_controller.edit_password(self.user_controller, login, new_password)
-        
-        print("Invalid password")
-        return 0
+        return self.user_controller.set_password(self.user_controller, login, old_password, new_password)
 
     def compare_user_password(self, password):
         return self.user_controller.compare_password(self.user_controller, password)
@@ -60,23 +52,19 @@ class SystemFacade(metaclass=SingletonMeta):
         return self.user_controller.get_login(self.user_controller, email)
     
     def user_set_phone(self, login, phone):
-        self.user_controller.set_telefone(self.user_controller, login, phone)
+        self.user_controller.set_phone(self.user_controller, login, phone)
 
     def user_get_phone(self, login):
-        return self.user_controller.get_telefone(self.user_controller, login)
+        return self.user_controller.get_phone(self.user_controller, login)
 
     def user_set_name(self, login, name):
-        self.user_controller.set_nome(self.user_controller, login, name)
+        self.user_controller.set_name(self.user_controller, login, name)
 
     def user_get_name(self, login):
-        return self.user_controller.get_nome(self.user_controller, login)
+        return self.user_controller.get_name(self.user_controller, login)
     
     def user_signup(self, login, senha, nome):
-        user = self.user_controller.get(login)
-        if (user is None):
-            usuario = self.user_controller.create(login,senha,nome)
-            return self.user_controller.save(usuario)
-        return self.user_controller.get(user)
+        return self.user_controller.signup(self.user_controller, login, senha, nome)
 
     def create_patient(self, name, age, weight, height, address):
         return self.patient_controller.criar_paciente_idoso(
@@ -88,8 +76,10 @@ class SystemFacade(metaclass=SingletonMeta):
             address
             )
 
-    def list_patients(self, patients):
-        return self.patient_controller.list_pacientes(self.patient_controller, patients)
+    def list_patients(self,patients):
+        for patient in patients:
+            print("Nome: " + patient.getNome() + " idade:" + str(patient.getIdade()),end = "")
+            print(" peso:" + str(patient.getPeso())+ " altura:" + str(patient.getAltura()))
 
     def set_patient_name(self, patient, name):
         self.patient_controller.set_nome(self.patient_controller, patient, name)
@@ -127,4 +117,21 @@ class SystemFacade(metaclass=SingletonMeta):
     def remove_patient_comorbidity(self, patient, comorbidity):
         self.patient_controller.remove_comorbidade(self.patient_controller, patient, comorbidity)
 
+    def list_patient_comorbidities(self, patient):
+        comorbidades = patient.get_comorbidades(patient)
+        for comorbidade in comorbidades:
+            print(comorbidade, end = " ")
+
+    def add_patient_activity(self, patient, activity):
+        self.patient_controller.add_atividade(self.patient_controller, patient, activity)
+
+    def remove_patient_activity(self, patient, activity):
+        self.patient_controller.remove_atividade(self.patient_controller, patient, activity)
+
+    def get_patient_activities(self, patient):
+        return self.patient_controller.get_atividades(self.patient_controller, patient)
     
+    def list_patient_activities(self, patient):
+        atividades = patient.get_atividades(patient)
+        for atividade in atividades:
+            print(atividade, end = " ")

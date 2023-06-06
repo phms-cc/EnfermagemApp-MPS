@@ -6,11 +6,6 @@ class PacienteController:
         novo_paciente = Idoso(nome, idade, peso, altura, endereço)
         
         return novo_paciente
-    
-    def list_pacientes(self,pacientes):
-        for paciente in pacientes:
-            print("Nome: " + paciente.getNome() + " idade:" + str(paciente.getIdade()),end = "")
-            print(" peso:" + str(paciente.getPeso())+ " altura:" + str(paciente.getAltura()))
             
     def delete_paciente(self):
         pass             
@@ -47,14 +42,18 @@ class PacienteController:
 
     def get_comorbidades(self, paciente):
         return paciente.getComorbidades()
-    
-    def list_comorbidades(self,paciente):
-        comorbidades = get_comorbidades(paciente)
-        for comorbidade in comorbidades:
-            print(comorbidade, end = " ")
 
     def add_comorbidade(self, paciente, comorbidade):
         paciente.addComorbidade(paciente, comorbidade)
         
     def remove_comorbidade(self, paciente, comorbidade):
         paciente.removeComorbidade(paciente, comorbidade)
+
+    def add_atividade(self, paciente, atividade):
+        paciente.add_atividade(paciente, atividade)
+
+    def remove_atividade(self, paciente, atividade):
+        paciente.remove_atividade(paciente, atividade)
+
+    def get_atividades(self, paciente):
+        return paciente.get_atividades()

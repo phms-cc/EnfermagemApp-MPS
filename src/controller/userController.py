@@ -38,15 +38,26 @@ class UserController:
         
     def delete(self,login):
         factory  = UserIntraInterfaceFactory()
-        salvar_user = factory.getUserIntraInter()
-        user = salvar_user.get_user_by_login(login)
+        user_intra_inter = factory.getUserIntraInter()
+        user = user_intra_inter.get_user_by_login(login)
         ~user
         pass
 
+    def signup(self, login, senha, nome):
+        user = self.get(login)
+        if (user is None):
+            usuario = self.create(login,senha,nome)
+            return self.save(usuario)
+        return self.get(user)
 
-    def set_password(self,login,new_password):
-        user = self.get_user(login)
-        user.set_password(new_password)
+    def set_password(self, login, old_password, new_password):
+        password_validate = self.compare_password(old_password)
+        
+        if(password_validate == True):
+            return self.edit_password(self, login, new_password)
+        
+        print("Invalid password")
+        return 0
                 
     def used_login(self,login):
         if (self.get_user(login) == None):
@@ -80,18 +91,18 @@ class UserController:
         user = self.get_user(login)
         user.set_email(email)
 
-    def get_telefone(self,login):
+    def get_phone(self,login):
         user = self.get_user(login)
-        return user.get_telefone()
+        return user.get_phone()
 
-    def set_telefone(self,login,telefone):
+    def set_phone(self,login,telefone):
         user = self.get_user(login)
-        user.set_telefone(telefone)
+        user.set_phone(telefone)
 
-    def get_nome(self,login):
+    def get_name(self,login):
         user = self.get_user(login)
-        return user.get_nome()
+        return user.get_name()
 
-    def set_nome(self,login,nome):
+    def set_name(self,login,nome):
         user = self.get_user(login)
-        user.set_nome(nome)
+        user.set_name(nome)
