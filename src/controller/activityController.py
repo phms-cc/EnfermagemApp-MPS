@@ -162,5 +162,5 @@ class AtividadeController:
     
     def clone(self, atividade):
     	clone = atividade.clone()
-	return atividade
+	return clone
     
