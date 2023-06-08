@@ -1,5 +1,6 @@
 from EnumTipoAtividade import TipoAtividade
 from inter.iprototype import IPrototype
+import copy
 
 class Atividade(IPrototype):
     def __init__(self):
@@ -36,4 +37,5 @@ class Atividade(IPrototype):
         return self.tipo
 
     def clone(self):
-        pass
+        clone = copy.deepcopy(self) 
+        return clone
