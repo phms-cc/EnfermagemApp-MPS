@@ -149,13 +149,13 @@ class AtividadeController:
         return medicamento.get_quantidade_ingerida()
     
     def medicamento_set_quantidade_recomendada(self,medicamento,qtd):
-        medicamento.set_quantidade_recomendada = qtd
+        medicamento.set_quantidade_recomendada(qtd)
         
     def medicamento_get_quantidada_recomendada(self,medicamento):
         return medicamento.get_quantidade_recomendada()
     
     def medicamento_get_horario(self,medicamento):
-        return medicamento.get_horario
+        return medicamento.get_horario()
     
     def medicamento_set_horario(self,medicamento,horario):
         medicamento.set_horario(horario)

@@ -5,6 +5,7 @@ class User:
         self.nome = nome
         self.email = None
         self.telefone = None
+        self.pacientes = []
 
     def __del__(self):
         pass
@@ -38,3 +39,9 @@ class User:
     
     def set_nome(self,nome):
         self.nome = nome
+
+    def get_pacientes(self):
+        return self.pacientes
+    
+    def set_pacientes(self,pacientes):
+        self.pacientes = pacientes
