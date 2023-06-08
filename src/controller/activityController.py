@@ -160,6 +160,7 @@ class AtividadeController:
     def medicamento_set_horario(self,medicamento,horario):
         medicamento.set_horario(horario)
     
-    
-    
+    def clone(self, atividade):
+    	clone = atividade.clone()
+	return clone
     

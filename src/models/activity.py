@@ -1,6 +1,8 @@
 from EnumTipoAtividade import TipoAtividade
+from inter.iprototype import IPrototype
+import copy
 
-class Atividade:
+class Atividade(IPrototype):
     def __init__(self):
         self.anotacao = None
         self.data = None
@@ -33,3 +35,7 @@ class Atividade:
             
     def get_tipo(self):
         return self.tipo
+
+    def clone(self):
+        clone = copy.deepcopy(self) 
+        return clone
