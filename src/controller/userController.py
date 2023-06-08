@@ -1,5 +1,6 @@
 from models.user import User
 from interface.user_intra_interface_factory import UserIntraInterfaceFactory
+from iterator.ElderlyIterator import ElderlyIterator
 
 class UserController:
     def create(login, senha, nome):
@@ -106,3 +107,25 @@ class UserController:
     def set_name(self,login,nome):
         user = self.get_user(login)
         user.set_name(nome)
+
+    def get_pacientes(self,login):
+        user = self.get_user(login)
+        return user.get_pacientes()
+    
+    def set_pacientes(self,login,pacientes):
+        user = self.get_user(login)
+        user.set_pacientes(pacientes)
+
+    def add_paciente(self, login, paciente):
+        user = self.get_user(login)
+        user.pacientes.append(paciente)
+
+    def remove_paciente(self, login, paciente):
+        user = self.get_user(login)
+        user.pacientes.remove(paciente)
+
+    def get_paciente(self, login, nome):
+        pacientes = self.get_pacientes(login)
+        iterator = ElderlyIterator(pacientes)
+        iterator.__next__() if value.getNome() != nome else StopIteration
+        return pacientes[iterator._position].getNome()
