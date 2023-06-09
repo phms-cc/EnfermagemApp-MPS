@@ -8,7 +8,7 @@ Created on Tue May  9 09:55:41 2023
 from enum import Enum
  
 class AceitacaoRefeicao(Enum):
-    recusou = 0
+    recusada = 0
     baixa = 1
     moderada = 2
     completa = 3

@@ -5,14 +5,11 @@ Created on Tue May  9 10:07:58 2023
 @author: filip
 """
 
-from Enum import AceitacaoRefeicao
-from Enum import TipoRefeicao
-
 class Refeicao:
     def __init__(self):
         self.descricao = None
-        self.tipo = -1
-        self.aceitacao = -1
+        self.tipo = None
+        self.aceitacao = None
     
     def set_descricao (self,descricao):
         self.descricao = descricao
@@ -21,10 +18,7 @@ class Refeicao:
         return self.descricao
     
     def set_tipo_refeicao(self,tipo):
-        if(isinstance (tipo,int)):
-            self.tipo = tipo
-        elif(tipo in TipoRefeicao.__members__):
-            self.tipo = tipo
+        self.tipo = tipo
             
     def get_tipo_refeicao(self):
         return self.tipo
@@ -33,8 +27,5 @@ class Refeicao:
         return self.aceitacao
     
     def set_aceitacao(self,aceitacao):
-        if(isinstance (aceitacao,int)):
-            self.aceitacao = aceitacao
-        elif(aceitacao in AceitacaoRefeicao.__members__):
-            self.aceitacao = aceitacao
+        self.aceitacao = aceitacao
         

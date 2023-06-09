@@ -7,7 +7,7 @@ Created on Tue May  9 21:12:22 2023
 
 from enum import Enum
  
-class IdosoComorbidades(Enum):
+class TipoComorbidades(Enum):
     AVC = 1
     Hipertensao = 2
     Diabetes = 3
