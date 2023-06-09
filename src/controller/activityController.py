@@ -7,6 +7,7 @@ from factory_activity_medication import AtividadeMedicacao_Factory
 from EnumTipoAtividade import TipoAtividade
 
 from models.show_image import MostraImagem
+from models.show_image_adapter import AdaptadorImagem
 from models.EnumTipoAtividade import TipoAtividade
 from models.NoEnum import NoEnum
 
