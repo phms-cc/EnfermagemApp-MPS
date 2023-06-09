@@ -1,0 +1,64 @@
+PADRÃO SINGLETON:
+
+OBJETIVO: O uso do Singleton cumpre 2 objetivos: controlar a instanciação de um certo objeto (haverá apenas um dele, uma representação útil quando se tem um recurso compartilhado e único) e garantir que esse objetivo seja acessado globalmente. No diagrama, está com a cor azul claro
+
+CLASSES: SingletonMeta, Singleton_ActivityController, Singleton_PacientController
+
+
+PADRÃO FACADE:
+
+OBJETIVO: Providenciar a um cliente uma interface que lhe permita acessar a funcionalidade de um conjunto de diversas classes, de forma simplificada.  No diagrama, está com a cor amarelo claro.
+
+CLASSES: SingletonMeta, SystemFacade
+
+
+PADRÃO FACTORY:
+
+OBJETIVO: Esse padrão permite abstrair a criação de objetos com o uso de uma classe nova intermediária. Isso se torna útil quando existem diversas classes compartilhando a interface da criação do tipo do objeto original. O cliente apenas sabe que usará a factory para receber um objeto, mas nada precisa saber de como ele é criado ou quais objetos utilizam tal interface.   No diagrama, está com a cor rosa
+
+CLASSES: factory_activity, factory_activity_feeding, factory_activity_hydratation, factory_activity_hygiene, factory_activity_medication,
+
+PADRÃO ADAPTER: 
+
+OBJETIVO: A ideia desse padrão é bastante simples, ele permite que interfaces incompatíveis possam interagir entre si, “convertendo” as interfaces. Ele é particularmente útil quando existem objetos com interfaces de terceiros que interagem entre si, ou interfaces sujeitas a mudanças constantes.  No diagrama, está com a cor verde
+
+CLASSES: MostraImagem, AdaptadorImagem
+
+
+PADRÃO TEMPLATE METHOD:
+
+OBJETIVO: Esse padrão é particularmente útil quando há um certo algoritmo que executa uma certa sequência de passos, ainda que a forma da execução de alguns passos específicos possa variar, e outros tenham um comportamento fixo. Um exemplo quanto a isso é o de geração de relatórios: seja qual for o tipo de arquivo a se produzir, ele deve ser aberto e ou criado, seu conteúdo deve ser tratado e por fim, ele deve ser escrito. A forma na qual alguns desses passos ocorrem pode variar, mas sempre irão ocorrer.  No diagrama, está com a cor vermelho
+
+CLASSES: TemplateGeraRelatorio, GeraRelatorioPDF, GeraRelatorioHTML
+
+PADRÃO COMMAND:
+
+OBJETIVO: Esse padrão permite encapsular operações e solicitações em objetos, de forma a facilitar o manuseio de tais operações. No diagrama, está com a cor rosa
+
+CLASSES: interface, showPacientes_command
+
+
+
+PADRÃO ITERATOR:
+
+OBJETIVO: Esse padrão permite iterar sobre um conjunto de objetos, de forma que não seja necessário saber a forma da representação desse conjunto. No diagrama, está com a cor roxa.
+
+CLASSES: ElderlyIterator
+
+
+
+
+PADRÃO PROTOTYPE:
+
+OBJETIVO: Esse padrão é utilizado em algumas circunstâncias. Seu principal uso é permitir que objetos de uma certa classe sejam clonados, ainda que não se conheça os seus atributos e ou representação interna, mas apenas sua interface. Isso é particularmente útil pois algumas linguagens muitas vezes possuem atributos privados nos objetos de uma classe, o que impossibilitaria acesso externo. Além disso, considera-se que copiar objetos é mais barato do que instanciar eles. No projeto, objetos da classe Atividade e suas subclasses podem ser clonados com base nesse padrão, algo também facilitado por compartilharem a mesma interface. Importante também ressaltar que o uso desse padrão implica apenas em um método novo na classe original que se deseja clonar, não em uma classe nova.  No diagrama, a interface está com a cor verde
+
+CLASSES: iprototype (interface usada em Atividade)
+
+
+
+
+PADRÃO MEMENTO:
+
+OBJETIVO: Implementar o padrão Memento em um projeto de software envolve criar classes e métodos que permitam salvar e restaurar o estado de um objeto em momentos diferentes. No nosso caso, restaurar a última alteração feita.  No diagrama, está com a cor roxo
+
+CLASSES: memento, originador, zelador
