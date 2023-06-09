@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class Paciente(ABC):
+class Patient(ABC):
     def __init__(self, nome, idade, peso, altura, endereço):
         self.nome = nome
         self.idade = idade
